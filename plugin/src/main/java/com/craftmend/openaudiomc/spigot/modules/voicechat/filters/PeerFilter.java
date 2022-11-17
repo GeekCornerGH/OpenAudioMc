@@ -39,6 +39,8 @@ public class PeerFilter extends Filter<ClientConnection, Player> {
     @Override
     public Stream<ClientConnection> wrap(Stream<ClientConnection> existingStream, Player context) {
         Stream<ClientConnection> s = existingStream.filter(possiblePeer -> {
+                    // TODO: Implement unwatched or exception lists here
+
                     // check if the player is even valid
                     if (!possiblePeer.getRtcSessionManager().isReady()) return false;
 
